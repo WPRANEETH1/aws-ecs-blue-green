@@ -2,7 +2,7 @@
 
 Herewith `terraform` for the ECS code deployment and `blue green` steps. This Codepipeline support to trigger pipeline once you `push the image into ECR`. So I developed terraform that its included `dynamically generate the task definition and appspec file`. This means that if your infrastructure is managed by Terraform, any changes to the task definition, CodePipeline will always get the latest information. In this repository, I will cover how I have approached it.
 
-https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/blue-green.PNG
+[[https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/blue-green.PNG]]
 #
 
 ## Steps CodePipeline works
@@ -25,7 +25,7 @@ https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/source
 ## Build
     CodeBuild will generate the taskdef.json and appspec.yaml dynamically. The appspec.yaml define the version of task definition it used in deployment. So below CodeBuild represent the way how to extrace the details on existing ECS deployment.
 
-https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/build.PNG
+[[https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/build.PNG]]
 
 ```
 version: 0.2
@@ -45,7 +45,7 @@ artifacts:
 
 Deploy
     To proceed with deployment in CodeDeploy it required these 3 files (imageDetail, appspec and taskdef). For BlueGreen deployment, you need to provide a load balancer with 2 target groups, So ALB for more flexibility.
-https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/deploy.PNG    
+[[https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/deploy.PNG]]
 
 
 CodePipeline
