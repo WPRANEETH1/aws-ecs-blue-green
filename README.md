@@ -2,7 +2,7 @@
 
 Herewith `terraform` for the ECS code deployment and `blue green` steps. This Codepipeline support to trigger pipeline once you `push the image into ECR`. So I developed terraform that its included `dynamically generate the task definition and appspec file`. This means that if your infrastructure is managed by Terraform, any changes to the task definition, CodePipeline will always get the latest information. In this repository, I will cover how I have approached it.
 
-[[https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/blue-green.PNG]]
+![text](/nginx-docker/blue-green.PNG)
 #
 
 ## Steps CodePipeline works
@@ -20,12 +20,12 @@ Pre-requisite
 
 ## Source
     We need to mentioned the `ECR` image to define the CodePipeline to deploy at the end. Codepipeline will pull the image tag via the `#256`
-https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/source.PNG    
+![text](/nginx-docker/source.PNG)  
 
 ## Build
     CodeBuild will generate the taskdef.json and appspec.yaml dynamically. The appspec.yaml define the version of task definition it used in deployment. So below CodeBuild represent the way how to extrace the details on existing ECS deployment.
 
-[[https://github.com/WPRANEETH1/aws-ecs-blue-green/blob/master/nginx-docker/build.PNG]]
+![text](/nginx-docker/build.PNG)
 
 ```
 version: 0.2
